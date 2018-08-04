@@ -33,7 +33,7 @@ export function main(event, context, callback) {
       const response = {
         statusCode: 500,
         headers: headers,
-        body: JSON.stringify({ status: false });
+        body: JSON.stringify({ status: false })
       };
       callback(null, response);
       return;
@@ -42,7 +42,7 @@ export function main(event, context, callback) {
     const response = {
       statusCode: 200,
       headers: headers,
-      body: JSON.stringify(params.Item);
+      body: JSON.stringify(params.Item)
     };
     callback(null, response);
   });
