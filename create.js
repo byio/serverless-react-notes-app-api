@@ -22,7 +22,7 @@ export function main(event, context, callback) {
     }
   };
   // call putItem with the params above to create a new item (note) in the 'notes' table
-  dynamoDB.putItem(params, (error, data) => {
+  dynamoDB.put(params, (error, data) => {
     // set response headers (JSON) to enable CORS
     const headers = {
       "Access-Control-Allow-Origin": "*",
