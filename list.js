@@ -8,7 +8,7 @@ export async function main(event, context, callback) {
     KeyConditionExpression: 'userId = :userId',
     // define value in the condition, :userId, to be Identity Pool identity id of auth user
     EpressionAttributeValues: {
-      ':userId': event.requestContext.identity.cognito.IdentityId
+      ':userId': event.requestContext.identity.cognitoIdentityId
     }
   };
 
