@@ -39,12 +39,21 @@ provider:
   #environment: ${file(env.yml):${self:provider.stage}}
 
 functions:
-  # define API endpoint that calls main function in create.js
+  # API endpoint to PUT one note
   create:
     handler: create.main
     events:
       - http:
           path: notes
           method: post
+          cors: true
+          authorizer: aws_iam
+  # API endpoint to GET one note
+  get:
+    handler: get.main
+    events:
+      - http:
+          path: notes/{id}
+          method: GET
           cors: true
           authorizer: aws_iam
