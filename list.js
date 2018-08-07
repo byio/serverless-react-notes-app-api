@@ -7,7 +7,7 @@ export async function main(event, context, callback) {
     // only return items with matching partition key, userId
     KeyConditionExpression: 'userId = :userId',
     // define value in the condition, :userId, to be Identity Pool identity id of auth user
-    EpressionAttributeValues: {
+    ExpressionAttributeValues: {
       ':userId': event.requestContext.identity.cognitoIdentityId
     }
   };
@@ -17,6 +17,7 @@ export async function main(event, context, callback) {
     // return list of items in response body
     callback(null, success(result.Items));
   } catch (e) {
+    console.log(e);
     callback(null, failure({ status: false }));
   }
 }
