@@ -66,3 +66,12 @@ functions:
           method: GET
           cors: true
           authorizer: aws_iam
+  # API endpoint to UPDATE specific note
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
