@@ -57,3 +57,12 @@ functions:
           method: GET
           cors: true
           authorizer: aws_iam
+  # API endpoint to GET list of notes from a user
+  list:
+    handler: list.main
+    events:
+      - http:
+          path: notes
+          method: GET
+          cors: true
+          authorizer: aws_iam
